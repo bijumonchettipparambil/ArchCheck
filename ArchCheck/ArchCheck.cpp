@@ -80,8 +80,8 @@ typedef struct CpuArchitecture {
 //
 // Prototype definitions
 //
-inline OperatingSystem::Name operatingSystem();
-inline CpuArchitecture::Name cpuArchitecture();
+inline static OperatingSystem::Name checkOperatingSystem();
+inline static CpuArchitecture::Name checkCpuArchitecture();
 inline void printOsAndCpuNameToConsole(const OperatingSystem::Name, const CpuArchitecture::Name);
 
 //
@@ -90,11 +90,11 @@ inline void printOsAndCpuNameToConsole(const OperatingSystem::Name, const CpuArc
 int main() 
 {
 
-    printOsAndCpuNameToConsole(operatingSystem(), cpuArchitecture());        
+    printOsAndCpuNameToConsole(checkOperatingSystem(), checkCpuArchitecture());
     return 0;
 }
 
-inline OperatingSystem::Name operatingSystem()
+inline static OperatingSystem::Name checkOperatingSystem()
 {
     #if defined(_WIN64) || defined(_WIN32)
         return OperatingSystem::Name::WINDOWS;
@@ -107,7 +107,7 @@ inline OperatingSystem::Name operatingSystem()
     return OperatingSystem::Name::UNKNOWN;
 }
 
-inline CpuArchitecture::Name cpuArchitecture()
+inline static CpuArchitecture::Name checkCpuArchitecture()
 {
 
     #if defined(_M_IX86)
