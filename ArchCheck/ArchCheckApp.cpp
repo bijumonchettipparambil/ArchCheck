@@ -82,7 +82,7 @@ struct CpuArchitecture {
 //
 static OperatingSystem::Name checkOperatingSystem();
 static CpuArchitecture::Name checkCpuArchitecture();
-inline void printOsAndCpuNameToConsole(const OperatingSystem::Name, const CpuArchitecture::Name);
+inline void printOsAndCpuNameToConsole(OperatingSystem::Name, CpuArchitecture::Name);
 
 //
 // Main method
