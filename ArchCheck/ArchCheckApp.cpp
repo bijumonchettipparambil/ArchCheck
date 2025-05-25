@@ -7,7 +7,7 @@
 // Type definition
 //
 
-typedef struct OperatingSystem {
+struct OperatingSystem {
 
     enum class Name
     {
@@ -40,7 +40,7 @@ typedef struct OperatingSystem {
 
 } OperatingSystem;
 
-typedef struct CpuArchitecture {
+struct CpuArchitecture {
 
     enum class Name
     {
