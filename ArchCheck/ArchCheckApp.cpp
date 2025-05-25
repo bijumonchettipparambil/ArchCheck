@@ -17,28 +17,23 @@ struct OperatingSystem {
         UNKNOWN
     };
 
-    static const char* getName(Name name)  {
-
-        const char* WINDOWS = "Windows";
-        const char* LINUX = "Linux";
-        const char* MACOS = "macOS";
-        const char* UNKNOWN = "Unknown operating system";
+    static const char* getName(const Name name)  {
 
         switch (name)
         {
         case Name::WINDOWS:
-            return WINDOWS;
+            return "Windows";
         case Name::LINUX:
-            return LINUX;
+            return "Linux";
         case Name::MAC:
-            return MACOS;
+            return "macOS";
         default:
-            return UNKNOWN;
+            return "Unknown operating system";
         }
 
     }
 
-} OperatingSystem;
+};
 
 struct CpuArchitecture {
 
@@ -51,31 +46,25 @@ struct CpuArchitecture {
         UNKNOWN
     };
 
-    static const char* getName(Name name) {
-
-        const char* CPU_ARCH_X86_32_BIT = "x86 32-bit";
-        const char* CPU_ARCH_X86_64_BIT = "x86 64-bit";
-        const char* CPU_ARCH_ARM_32_BIT = "Arm 32-bit";
-        const char* CPU_ARCH_ARM_64_BIT = "Arm 64-bit";
-        const char* UNKNOWN = "Unknown CPU";
+    static const char* getName(const Name name) {
 
         switch (name)
         {
         case Name::X86_32:
-            return CPU_ARCH_X86_32_BIT;
+            return "x86 32-bit";
         case Name::X86_64:
-            return CPU_ARCH_X86_64_BIT;
+            return "x86 64-bit";
         case Name::ARM_32:
-            return CPU_ARCH_ARM_32_BIT;
+            return "Arm 32-bit";
         case Name::ARM_64:
-            return CPU_ARCH_ARM_64_BIT;
+            return "Arm 64-bit";
         default:
-            return UNKNOWN;
+            return "Unknown CPU";
         }
 
     }
 
-} CpuArchitecture;
+};
 
 //
 // Prototype definitions
