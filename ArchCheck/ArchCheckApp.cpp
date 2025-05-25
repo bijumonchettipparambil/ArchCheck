@@ -5,10 +5,10 @@
 
 //
 // Type definition
-// 
+//
 
 typedef struct OperatingSystem {
-    
+
     enum class Name
     {
         WINDOWS,
@@ -80,21 +80,21 @@ typedef struct CpuArchitecture {
 //
 // Prototype definitions
 //
-inline static OperatingSystem::Name checkOperatingSystem();
-inline static CpuArchitecture::Name checkCpuArchitecture();
+static OperatingSystem::Name checkOperatingSystem();
+static CpuArchitecture::Name checkCpuArchitecture();
 inline void printOsAndCpuNameToConsole(const OperatingSystem::Name, const CpuArchitecture::Name);
 
 //
 // Main method
 //
-int main() 
+int main()
 {
 
     printOsAndCpuNameToConsole(checkOperatingSystem(), checkCpuArchitecture());
     return 0;
 }
 
-inline static OperatingSystem::Name checkOperatingSystem()
+static OperatingSystem::Name checkOperatingSystem()
 {
     #if defined(_WIN64) || defined(_WIN32)
         return OperatingSystem::Name::WINDOWS;
@@ -107,16 +107,16 @@ inline static OperatingSystem::Name checkOperatingSystem()
     return OperatingSystem::Name::UNKNOWN;
 }
 
-inline static CpuArchitecture::Name checkCpuArchitecture()
+static CpuArchitecture::Name checkCpuArchitecture()
 {
 
-    #if defined(_M_IX86)
+    #if defined(_M_IX86) || defined(__i386__)
         return CpuArchitecture::Name::X86_32;
-    #elif defined(_M_X64)
+    #elif defined(_M_X64) || defined(__x86_64__)
         return CpuArchitecture::Name::X86_64;
-    #elif defined(_M_ARM)
+    #elif defined(_M_ARM) || defined(__ARM_ARCH) || defined(__arm__)
         return CpuArchitecture::Name::ARM_32;
-    #elif defined(_M_ARM64)
+    #elif defined(_M_ARM64) || defined(__aarch64__)
         return CpuArchitecture::Name::ARM_64;
     #endif
 
